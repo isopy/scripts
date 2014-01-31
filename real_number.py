@@ -14,8 +14,8 @@ partners = int(raw_input("--> "))
 
 if gender in ("M", "m"):
     actual_women = men_real(partners)
-    print "You've actually slept with %.1f women" % actual_women
+    print "You've actually slept with %.1f women" % round(actual_women)
 
 elif gender in ("F", "f"):
     actual_men = women_real(partners)
-    print "You've actually slept with %.1f men" % actual_men
+    print "You've actually slept with %.1f men" % round(actual_men)
