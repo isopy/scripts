@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # declare STRING variable
 
 STRING="Hello World"
