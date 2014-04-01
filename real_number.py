@@ -1,10 +1,10 @@
-def men_real(a):
+def men_real(men_supplied_number):
     print "Calculating the actual number of women you've slept with: "
-    return a / 2.0
+    return men_number / 2.0
 
-def women_real(a):
+def women_real(women_number):
     print "Calculating the actual number of men you've slept with: "
-    return a * 2.0
+    return women_number * 2.0
 
 print "Type M and press ENTER if you are male, Type F and press enter if you are female"
 gender = raw_input("--> ")
