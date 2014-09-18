@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Change ~/puppet-cfg/modules/* to reflect the path to your modules
 for a in ~/puppet-cfg/modules/*;
 do
