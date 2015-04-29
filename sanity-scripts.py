@@ -23,7 +23,6 @@ def runCommands(command=cmds):
     for cmd in cmds:
         subprocess.call('echo -e "####################" >> /root/sanity-checks.log_`date +%F`', shell=True)
         subprocess.call(cmd, shell=True)
-        subprocess.call('echo -e "####################" >> /root/sanity-checks.log_`date +%F`', shell=True)
         subprocess.call('echo -e "\n" >> /root/sanity-checks.log_`date +%F`', shell=True)
 
 runCommands()
