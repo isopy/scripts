@@ -11,6 +11,6 @@ if [ -d $puppet_mods ]; then
         cd $m
         versionmerge-init
     done
-else    
+else
     echo "That directory does not exist.  Check your path and try again."
 fi
