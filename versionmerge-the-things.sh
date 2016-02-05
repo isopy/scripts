@@ -8,7 +8,7 @@ fi
 
 if [ -d $puppet_mods ]; then
     for m in `ls $puppet_mods`; do
-        cd $m
+        cd $puppet_mods/$m
         versionmerge-init
     done
 else
