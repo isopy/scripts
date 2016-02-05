@@ -8,9 +8,11 @@ fi
 
 if [ -d $puppet_mods ]; then
     for m in `ls $puppet_mods`; do
-        echo "$m##############################"
+        printf "\n"
+        echo "$m ##############################"
         cd $puppet_mods/$m
         versionmerge-init
+        printf "\n"
     done
 else
     echo "That directory does not exist.  Check your path and try again."
