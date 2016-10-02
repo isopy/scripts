@@ -1,0 +1,41 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    make: "Honda"
+  tasks:
+    - name: restart auditd
+      service:
+        name: auditd
+        state: restarted
+
+    - name: Debug statement
+      debug:
+        var: make
+      register: debug_out
+
+    - name: Check debug (DO NOT MODIFY THIS TASK)
+      assert:
+        that:
+          - "'{{debug_out.make}}' == 'Honda'"
+
+    - name: Make unicorn users
+      user:
+        name: "{{ item.name }}"
+        comment: "size is {{ item.size }}"
+        state: present
+      with_items:
+      - { name: 'samantha', size: 'large' }
+      - { name: 'charles', size: 'xlrarge' }
+      - { name: 'enrique', size: 'medium'  } 
+        
+    - name: Install Some Ops Packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - htop
+        - lsof
+        - strace
+        - iftop
+        - tcpdump

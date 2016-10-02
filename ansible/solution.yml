@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Create a group named "food"
+      group:
+        name: "{{ item.name  }}"
+      with_items:
+        - { name: food }
+        - { name: redhat, gid: 1500 }
+
+
+#    - name: Create a group named "food"
+#    group:
+#       name: "food"
+#        state: present
+
+    - name: Create a group named redhat with GID of 1500
+      group:
+        name: "redhat"
+        gid: 1500
+        state: present
+
+    - name: Create users named enchilada and redhat and assign them to groups
+      user:
+        name: "{{ item.name }}"
+        group: "{{ item.groups }}"
+      with_items:
+        - { name: 'enchilada', groups: 'food' }
+        - { name: 'redhat', groups: 'redhat', uid: 1500 }
+
+    - name: Create a directory owned by the redhat user and group
+      file:
+        path: "/home/tasker/data/project/RHT"
+        owner: "{{ item.owner }}"
+        group: "{{ item.group }}"
+        state: directory
+      with_items:
+        - { owner: 'redhat', group: 'redhat' }
